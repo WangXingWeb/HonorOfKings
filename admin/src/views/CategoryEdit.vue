@@ -34,13 +34,13 @@ export default {
     },
     methods:{
         async save(){
-            let res
+            
             if(this.id){
                 //更新
-                res = await this.$http.put(`rest/categories/${this.id}`,this.model)
+                await this.$http.put(`rest/categories/${this.id}`,this.model)
                 //新建
             }else{
-                res = await this.$http.post('rest/categories',this.model)
+                await this.$http.post('rest/categories',this.model)
             }
             this.$router.push('/categories/list')
                 this.$message({
@@ -51,7 +51,6 @@ export default {
         async fetch(){
             const res = await this.$http.get(`rest/categories/${this.id}`)
             this.model = res.data
-            console.log(this.model)
         },
         async fetchParents(){
             const res = await this.$http.get(`rest/categories`)
