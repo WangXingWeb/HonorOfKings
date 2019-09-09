@@ -8,10 +8,10 @@
             <el-form-item label="图标">
                 <el-upload
                 class="avatar-uploader"
-                action=""
+                :action="$http.defaults.baseURL+'/upload'"
                 :show-file-list="false"
-                :on-success="handleAvatarSuccess"
-                :before-upload="beforeAvatarUpload">
+                :on-success="afterUpload"
+                >
                 <img v-if="model.icon" :src="model.icon" class="avatar">
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>    
                 </el-upload>
@@ -34,7 +34,6 @@ export default {
     },
     methods:{
         async save(){
-            
             if(this.id){
                 //更新
                 await this.$http.put(`rest/items/${this.id}`,this.model)
@@ -43,16 +42,18 @@ export default {
                 await this.$http.post('rest/items',this.model)
             }
             this.$router.push('/items/list')
-                this.$message({
-                    type:'success',
-                    message:'保存成功'
-                })
+            this.$message({
+                type:'success',
+                message:'保存成功'
+            })
         },
         async fetch(){
             const res = await this.$http.get(`rest/items/${this.id}`)
             this.model = res.data
         },
-        
+        afterUpload(res){
+            console.log(res);
+        }
         
     },
     created(){
@@ -79,6 +80,7 @@ export default {
     height: 178px;
     line-height: 178px;
     text-align: center;
+    vertical-align: middle;
   }
   .avatar {
     width: 178px;
