@@ -42,7 +42,7 @@ export default {
                 await this.$http.post('rest/items',this.model)
             }
             this.$router.push('/items/list')
-            this.$message({ig
+            this.$message({
                 type:'success',
                 message:'保存成功'
             })
@@ -53,6 +53,8 @@ export default {
         },
         afterUpload(res){
             console.log(res);
+            // vue中响应数据的问题
+            this.$set(this.model,'icon',res.url)
         }
         
     },
