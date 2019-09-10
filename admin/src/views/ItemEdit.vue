@@ -42,7 +42,7 @@ export default {
                 await this.$http.post('rest/items',this.model)
             }
             this.$router.push('/items/list')
-            this.$message({
+            this.$message({ig
                 type:'success',
                 message:'保存成功'
             })
