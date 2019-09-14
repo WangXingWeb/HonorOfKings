@@ -2,14 +2,21 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Main from './views/Main.vue'
+
 import CategoryEdit from './views/CategoryEdit.vue'
 import CategoryList from './views/CategoryList.vue'
+
 import ItemEdit from './views/ItemEdit.vue'
 import ItemList from './views/ItemList.vue'
+
 import HeroEdit from './views/HeroEdit.vue'
 import HeroList from './views/HeroList.vue'
+
 import ArticleEdit from './views/ArticleEdit.vue'
 import ArticleList from './views/ArticleList.vue'
+
+import AdEdit from './views/AdEdit.vue'
+import AdList from './views/AdList.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +41,10 @@ export default new Router({
         {path:'/articles/create',component:ArticleEdit},
         {path:'/articles/edit/:id',component:ArticleEdit,props:true},
         {path:'/articles/list',component:ArticleList},
+
+        {path:'/ads/create',component:AdEdit},
+        {path:'/ads/edit/:id',component:AdEdit,props:true},
+        {path:'/ads/list',component:AdList},
       ]
     }
   ]
