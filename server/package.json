@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "cors": "^2.8.5",
     "express": "^5.0.0-alpha.7",
     "inflection": "^1.12.0",
