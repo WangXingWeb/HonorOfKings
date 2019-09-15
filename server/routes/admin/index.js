@@ -3,7 +3,7 @@ module.exports = app => {
     const router = express.Router({
         mergeParams:true
     })
-
+    
     router.post('/',async (req,res) => {
         const model = await req.Model.create(req.body)
         res.send(model)
@@ -55,8 +55,25 @@ module.exports = app => {
     })
 
     app.post('/admin/api/login',async (req,res) => {
-        const {name,password} =req.body
+        const {username,password} =req.body
         const AdminUser = require('../../models/AdminUser')
-        const user = await AdminUser.findOne({username})
+        // 1.查询用户
+        const user = await AdminUser.findOne({username:username}).select('+password')
+        if(!user){
+            return res.status(422).send({
+                message:'用户不存在'
+            })
+        }
+        // 2. 校验密码
+        const isValid = require('bcrypt').compareSync(password,user.password)
+        if(!isValid){
+            return res.status(422).send({
+                message:'密码错误'
+            })
+        }
+        //3. 返回token
+        const jwt = require('jsonwebtoken')
+        const token = jwt.sign({_id:user._id},app.get('secret'))
+        res.send({token})
     })
 }

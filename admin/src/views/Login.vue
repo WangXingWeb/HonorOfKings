@@ -30,8 +30,14 @@ export default {
     async login(){
       const res = await this.$http.post('login',this.model)
       console.log(res.data);
-      
-      
+      localStorage.token = res.data.token
+      //关闭浏览器在打开就消失了
+      //sessionStorage.token = res.data.token
+      this.$router.push('/')
+      this.$message({
+        type:'success',
+        message:'登录成功'
+      })
     }
   }
 }
