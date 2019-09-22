@@ -1,5 +1,30 @@
 <template>
-<div>ddd</div>
+    <div>
+        <div class="topbar bg-black  py-2 px-3 d-flex ai-center">
+            <img src="../assets/images/logo.png" height="30" alt="">
+            <div class="pl-2 flex-1">
+                <div class="text-white fs-sm pb-1">王者荣耀</div>
+                <div class="text-grey-1 fs-xs fs-xxs">团队成就更多</div>
+            </div>
+            <button type="button" class="btn bg-primary fs-sm py-1 px-2">直接下载</button>
+        </div>
+        <div class="bg-primary pt-3 pb-2">
+            <div class="nav pb-1 d-flex jc-around text-white">
+                <div class="nav-item active">
+                    <router-lingk to=”/“>首页</router-lingk>
+                </div>
+                <div class="nav-item">
+                    <router-lingk to=”/“>攻略中心</router-lingk>
+                </div>
+                <div class="nav-item">
+                    <router-lingk to=”/“>赛事中心</router-lingk>
+                </div>
+            </div>
+        </div>
+        <router-view>
+
+        </router-view>
+    </div>
 </template>
 <script>
 
