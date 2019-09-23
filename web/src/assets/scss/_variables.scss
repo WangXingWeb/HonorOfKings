@@ -1,0 +1,51 @@
+// color
+$colors:(
+    "primary":#db9e3f,
+    "info":#4b67af,
+    "white":#fff,
+    "black":#000, 
+    "dark":#222,
+    "dark-1":#343440,
+    "grey-1":#666,
+    "light":#f9f9f9,
+    "light-1":#d4d9de,
+    "grey":#999
+);
+
+$border-color:map-get( $colors, 'light-1');
+
+//字体尺寸
+$base-font-size:1rem;
+$font-sizes:(
+    xxs:0.6154,//8px
+    xs:0.7692,//10px
+    sm:0.9231,//12px
+    md:1,//13px
+    lg:1.0769,//14px
+    xl:1.2308,//16px
+);
+
+//弹性布局主轴方向对齐方式
+$flex-jc:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    between:space-between,
+    around:space-around
+);
+
+//弹性布局交叉轴方向对齐方式
+$flex-ai:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    stretch:stretch
+);
+
+//边距margin,padding
+$spacing-types:(m:margin, p:padding);
+$spacing-direction:(t:top, r:right, b:bottom, l:left);
+$spacing-base-size:1rem;
+$spacing-sizes:(0:0, 1:0.25, 2:0.5, 3:1, 4:1.5, 5:3);//参考bootstarp
+
+

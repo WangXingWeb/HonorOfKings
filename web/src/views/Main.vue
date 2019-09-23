@@ -11,19 +11,17 @@
         <div class="bg-primary pt-3 pb-2">
             <div class="nav pb-1 d-flex jc-around text-white">
                 <div class="nav-item active">
-                    <router-lingk to=”/“>首页</router-lingk>
+                    <router-link tag="div" to="/">首页</router-link>
                 </div>
                 <div class="nav-item">
-                    <router-lingk to=”/“>攻略中心</router-lingk>
+                    <router-link tag="div" to="/">攻略中心</router-link>
                 </div>
                 <div class="nav-item">
-                    <router-lingk to=”/“>赛事中心</router-lingk>
+                    <router-link tag="div" to="/">赛事中心</router-link>
                 </div>
             </div>
         </div>
-        <router-view>
-
-        </router-view>
+        <router-view></router-view>
     </div>
 </template>
 <script>

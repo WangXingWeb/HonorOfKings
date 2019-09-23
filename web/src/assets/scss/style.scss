@@ -1,3 +1,4 @@
+@import './variables';
 //reset
 *{
     box-sizing: border-box;
@@ -19,17 +20,6 @@ a{
     color:#999;
 }
 // color
-$colors:(
-    "primary":#db9e3f,
-    "white":#fff,
-    "black":#000, 
-    "dark":#222,
-    "dark-1":#343440,
-    "grey-1":#666,
-    "light":#f9f9f9,
-    "grey":#999
-);
-
 //文字颜色和背景色
 @each $colorKey,$color in $colors {
     .text-#{$colorKey}{
@@ -43,24 +33,24 @@ $colors:(
 //文字对齐
 @each $var in (left,right,center) {
     .text-#{$var}{
-        text-align: $var
+        text-align: $var !important;
     }
 }
 
 //字体尺寸
-$base-font-size:1rem;
-$font-sizes:(
-    xxs:0.6154,//8px
-    xs:0.7692,//10px
-    sm:0.9231,//12px
-    md:1,//13px
-    lg:1.0769,//14px
-    xl:1.2308,//16px
-);
 @each $sizeKey,$size in $font-sizes {
     .fs-#{$sizeKey}{
         font-size:$size*$base-font-size
     }
+}
+
+
+//wdith,height
+.w-100{
+    width:100%;
+}
+.h-100{
+    height:100%;
 }
 
 //flex
@@ -70,15 +60,11 @@ $font-sizes:(
 .flex-column{
     flex-direction: column;
 }
+.flex-wrap{
+    flex-wrap:wrap;
+}
 
 //弹性布局主轴方向对齐方式
-$flex-jc:(
-    start:flex-start,
-    end:flex-end,
-    center:center,
-    between:space-between,
-    around:space-around
-);
 @each $key,$value in $flex-jc {
     .jc-#{$key}{
         justify-content:$value
@@ -86,12 +72,6 @@ $flex-jc:(
 }
 
 //弹性布局交叉轴方向对齐方式
-$flex-ai:(
-    start:flex-start,
-    end:flex-end,
-    center:center,
-    stretch:stretch
-);
 @each $key,$value in $flex-ai {
     .ai-#{$key}{
         align-items: $value
@@ -106,11 +86,6 @@ $flex-ai:(
 }
 
 //边距margin,padding
-$spacing-types:(m:margin, p:padding);
-$spacing-direction:(t:top, r:right, b:bottom, l:left);
-$spacing-base-size:1rem;
-$spacing-sizes:(0:0, 1:0.25, 2:0.5, 3:1, 4:1.5, 5:3);//参考bootstarp
-
 @each $typeKey,$type in $spacing-types {
     //.m-0{margin:1rem;}
     @each $sizeKey,$size in $spacing-sizes {
@@ -160,4 +135,23 @@ $spacing-sizes:(0:0, 1:0.25, 2:0.5, 3:1, 4:1.5, 5:3);//参考bootstarp
         }
     }
     
+}
+
+//sprite
+.sprite{
+    background: url('../images/sprite.png') no-repeat;
+    background-size: 28.8462rem;
+    display: inline-block;
+
+    &.sprite-news{
+        width: 1.7692rem;
+        height:1.5385rem;
+        background-position: 63.546% 15.517%;
+    }
+
+    &.sprite-story{
+        width: 1.7692rem;
+        height:1.5385rem;
+        background-position: 90.483% 15.614%;
+    }
 }
