@@ -27,6 +27,7 @@
         </div>
       </div>
       <!-- end of nav icons -->
+      
   </div>
 </template>
 
