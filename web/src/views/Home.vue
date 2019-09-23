@@ -13,13 +13,20 @@
         <div class="swiper-pagination pagination-home text-right px-3 pb-1 text-gray-1" slot="pagination"></div>
       </swiper>
       <!-- end of swiper -->
-      <div class="nav-icons bg-white mt-3 d-flex flex-wrap text-center pt-3">
-        <div class="nav-item mb-3" 
-          v-for="n in 10" :key="n">
-          <i class="sprite sprite-news"></i>
-          <div>爆料站</div>
+      <div class="nav-icons bg-white mt-3  text-center pt-3">
+        <div class="d-flex flex-wrap">
+          <div class="nav-item mb-3" 
+            v-for="n in 10" :key="n">
+            <i class="sprite sprite-news"></i>
+            <div class="py-2">爆料站</div>
+          </div>
+        </div>
+        <div class="bg-light py-2 fs-sm d-flex ai-center jc-center">
+          <i class="sprite sprite-arrow mr-1"></i>
+          收起
         </div>
       </div>
+      <!-- end of nav icons -->
   </div>
 </template>
 
@@ -28,6 +35,7 @@ export default{
   data(){
     return {
         swiperOption: {
+          loop:true,
           autoplay: {
     　　　　delay: 2000,
       　　  disableOnInteraction: false
@@ -35,8 +43,7 @@ export default{
           pagination: {
             el: '.pagination-home'
           }
-        },
-        swiperSlides: [1, 2, 3, 4, 5]
+        }
       }
   }
 }
@@ -57,9 +64,15 @@ export default{
 }
 
 .nav-icons{
+  border-top:1px solid $border-color;
+  border-bottom:1px solid $border-color;
   .nav-item{
     width: 25%;
     border-right:1px solid $border-color;
+
+    &:nth-child(4n){
+      border-right:none;
+    }
   }
 }
 </style>
