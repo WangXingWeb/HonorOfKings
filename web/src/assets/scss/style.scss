@@ -128,14 +128,27 @@ a{
 
 //nav
 .nav{
+    display: flex;
     .nav-item{
-        //border-bottom:3px solid transparent;
+        border-bottom:3px solid transparent;
+        padding-bottom:0.2rem;
+        
         &.active{
-            border-bottom:3px solid #fff;
+            color:map-get($colors,'primary');
+            border-bottom:3px solid map-get($map: $colors, $key: 'primary');
         }
     }
-    
+    &.nav-inverse{
+        .nav-item{
+            color:map-get($map: $colors, $key: 'white');
+
+            &.active{
+                border-bottom:3px solid map-get($map: $colors, $key: 'white');
+            }
+        }
+    }
 }
+
 
 //sprite
 .sprite{

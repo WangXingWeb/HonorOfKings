@@ -9,7 +9,7 @@
             <button type="button" class="btn bg-primary fs-sm py-1 px-2">直接下载</button>
         </div>
         <div class="bg-primary pt-3 pb-2">
-            <div class="nav pb-1 d-flex jc-around text-white">
+            <div class="nav nav-inverse jc-around text-white pb-1">
                 <div class="nav-item active">
                     <router-link tag="div" to="/">首页</router-link>
                 </div>
@@ -30,6 +30,6 @@ export default {
 
 }
 </script>
-<style>
-
+<style scoped>
+    @import '//at.alicdn.com/t/font_1431667_lwv7qfd07df.css';
 </style>
