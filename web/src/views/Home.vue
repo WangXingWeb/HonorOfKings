@@ -15,10 +15,45 @@
       <!-- end of swiper -->
       <div class="nav-icons bg-white mt-3  text-center pt-3">
         <div class="d-flex flex-wrap">
-          <div class="nav-item mb-3" 
-            v-for="n in 10" :key="n">
+          <div class="nav-item mb-3">
             <i class="sprite sprite-news"></i>
             <div class="py-2">爆料站</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-story"></i>
+            <div class="py-2">故事站</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-store"></i>
+            <div class="py-2">周边商城</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-experience"></i>
+            <div class="py-2">体验服</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-newplayer"></i>
+            <div class="py-2">新人专区</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-lineage"></i>
+            <div class="py-2">荣耀·传承</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-colleagues"></i>
+            <div class="py-2">同人社区</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-wangzhe"></i>
+            <div class="py-2">王者营地</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-weixin"></i>
+            <div class="py-2">公众号</div>
+          </div>
+          <div class="nav-item mb-3">
+            <i class="sprite sprite-version"></i>
+            <div class="py-2">版本介绍</div>
           </div>
         </div>
         <div class="bg-light py-2 fs-sm d-flex ai-center jc-center">
