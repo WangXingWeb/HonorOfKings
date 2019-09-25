@@ -62,37 +62,19 @@
         </div>
       </div>
       <!-- end of nav icons -->
-      <m-card icon="icon-menu" title="新闻资讯">
-        <div class="nav jc-between">
-              <div class="nav-item active">
-                <div class="nav-link">热门</div>  
-              </div> 
-              <div class="nav-item">
-                <div class="nav-link">新闻</div>  
-              </div>
-              <div class="nav-item">
-                <div class="nav-link">公告</div>  
-              </div> 
-              <div class="nav-item">
-                <div class="nav-link">活动</div>  
-              </div> 
-              <div class="nav-item">
-                <div class="nav-link">赛事</div>  
-              </div>  
-            </div>
-            <div class="pt-2">
-              <swiper>
-                <swiper-slide v-for="m in 5" :key="m">
-                  <div class="py-2 d-flex" v-for="n in 5" :key="n">
-                    <span>[公告]</span>
-                    <span>|</span>
-                    <span class="flex-1">9月24日全服不停机更新公告</span>
-                    <span>09/23</span>
-                  </div>
-                </swiper-slide>
-              </swiper>
-            </div>
-      </m-card>
+      <m-list-card 
+        icon="icon-menu" 
+        title="新闻资"  
+        :categories="newsCats"
+        >
+        <template #item="{news}">
+          <span>[{{news.categoryName}}]</span>
+          <span>|</span>
+          <span class="flex-1">{{news.title}}</span>
+          <span>{{news.date}}</span>
+        </template>  
+      </m-list-card>
+
       <m-card icon="icon-flightpeople3" title="英雄列表">
 
       </m-card>
@@ -109,17 +91,59 @@
 export default{
   data(){
     return {
-        swiperOption: {
-          loop:true,
-          autoplay: {
-    　　　　delay: 2000,
-      　　  disableOnInteraction: false
-      　　},
-          pagination: {
-            el: '.pagination-home'
-          }
+      newsCats:[
+        {
+          name:'热门',
+          newsList:new Array(5).fill({}).map(v => ({
+              categoryName:'公告',
+              title:'游戏音效异常问题说明',
+              date:'06/01'
+            }))
+        },
+        {
+          name:'新闻',
+          newsList:new Array(5).fill({}).map(v => ({
+              categoryName:'新闻',
+              title:'游戏音效异常问题说明',
+              date:'06/01'
+            }))
+        },
+        {
+          name:'公告',
+          newsList:new Array(5).fill({}).map(v => ({
+              categoryName:'新闻',
+              title:'游dd戏音效异常问题说明',
+              date:'06/01'
+            }))
+        },
+        {
+          name:'活动',
+          newsList:new Array(5).fill({}).map(v => ({
+              categoryName:'新闻',
+              title:'游戏音效异常问题说明',
+              date:'06/01'
+            }))
+        },
+        {
+          name:'赛事',
+          newsList:new Array(5).fill({}).map(v => ({
+              categoryName:'新闻',
+              title:'游戏音效异常问题说明',
+              date:'06/01'
+            }))
+        }
+      ],
+      swiperOption: {
+        loop:true,
+        autoplay: {
+  　　　　delay: 2000,
+    　　  disableOnInteraction: false
+    　　},
+        pagination: {
+          el: '.pagination-home'
         }
       }
+    }
   }
 }
 </script>

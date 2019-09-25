@@ -30,6 +30,11 @@ export default {
 
 }
 </script>
-<style scoped>
+<style lang="scss">
     @import '//at.alicdn.com/t/font_1431667_lwv7qfd07df.css';
+    .topbar{
+        position: sticky;
+        top:0;
+        z-index: 999;
+    }
 </style>
