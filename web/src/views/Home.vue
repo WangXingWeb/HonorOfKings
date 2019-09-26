@@ -62,6 +62,7 @@
         </div>
       </div>
       <!-- end of nav icons -->
+<<<<<<< Updated upstream
       <m-list-card 
         icon="icon-menu" 
         title="新闻资"  
@@ -75,6 +76,40 @@
         </template>  
       </m-list-card>
 
+=======
+      <m-card icon="icon-menu" title="新闻资讯">
+        <div class="nav jc-between">
+            <div class="nav-item active">
+              <div class="nav-link">热门</div>  
+            </div> 
+            <div class="nav-item">
+              <div class="nav-link">新闻</div>  
+            </div>
+            <div class="nav-item">
+              <div class="nav-link">公告</div>  
+            </div> 
+            <div class="nav-item">
+              <div class="nav-link">活动</div>  
+            </div> 
+            <div class="nav-item">
+              <div class="nav-link">赛事</div>  
+            </div>  
+          </div>
+          
+          <div class="pt-2">
+            <swiper>
+              <swiper-slide v-for="m in 5" :key="m">
+                <div class="py-2 d-flex" v-for="n in 5" :key="n">
+                  <span>[公告]</span>
+                  <span>|</span>
+                  <span class="flex-1">9月24日全服不停机更新公告</span>
+                  <span>09/23</span>
+                </div>
+              </swiper-slide>
+            </swiper>
+          </div>
+      </m-card>
+>>>>>>> Stashed changes
       <m-card icon="icon-flightpeople3" title="英雄列表">
 
       </m-card>
