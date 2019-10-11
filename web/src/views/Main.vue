@@ -32,6 +32,7 @@ export default {
 </script>
 <style lang="scss">
     @import '//at.alicdn.com/t/font_1431667_lwv7qfd07df.css';
+    //吸顶效果
     .topbar{
         position: sticky;
         top:0;
