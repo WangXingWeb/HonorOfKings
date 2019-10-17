@@ -90,48 +90,7 @@
 export default{
   data(){
     return {
-      newsCats:[
-        {
-          name:'热门',
-          newsList:new Array(5).fill({}).map(v => ({
-              categoryName:'公告',
-              title:'游戏音效异常问题说明',
-              date:'06/01'
-            }))
-        },
-        {
-          name:'新闻',
-          newsList:new Array(5).fill({}).map(v => ({
-              categoryName:'新闻',
-              title:'游戏音效异常问题说明',
-              date:'06/01'
-            }))
-        },
-        {
-          name:'公告',
-          newsList:new Array(5).fill({}).map(v => ({
-              categoryName:'新闻',
-              title:'游dd戏音效异常问题说明',
-              date:'06/01'
-            }))
-        },
-        {
-          name:'活动',
-          newsList:new Array(5).fill({}).map(v => ({
-              categoryName:'新闻',
-              title:'游戏音效异常问题说明',
-              date:'06/01'
-            }))
-        },
-        {
-          name:'赛事',
-          newsList:new Array(5).fill({}).map(v => ({
-              categoryName:'新闻',
-              title:'游戏音效异常问题说明',
-              date:'06/01'
-            }))
-        }
-      ],
+      newsCats:[],
       swiperOption: {
         loop:true,
         autoplay: {
@@ -143,6 +102,15 @@ export default{
         }
       }
     }
+  },
+  methods:{
+    async fetchNewsCats(){
+      const res = await this.$http.get('news/list')
+      this.newsCats = res.data
+    }
+  },
+  created(){
+    this.fetchNewsCats()
   }
 }
 </script>

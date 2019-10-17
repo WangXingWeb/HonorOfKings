@@ -28,7 +28,11 @@ module.exports = app => {
     })
 
     router.get('/news/list',async(req,res) => {
-        
+        const parent = await Category.findOne({
+            name:'新闻分类'
+        }).populate({
+            path:'children'
+        })
     })
 
     app.use('/web/api',router)
