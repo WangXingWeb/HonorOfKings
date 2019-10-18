@@ -1,23 +1,22 @@
 <template>
     <m-card :icon="icon" :title="title">
         <div class="nav jc-between">
-              <div v-for="(category,i) in categories" :key="i" class="nav-item"  :class="{active:newsActive===i}">
+              <div v-for="(category,i) in categories" :key="i" class="nav-item" 
+              @click="$refs.list.swiper.slideTo(i)"  :class="{active:active===i}">
                 <div class="nav-link">{{category.name}}</div>  
               </div> 
             </div>
             <div class="pt-2">
-              <swiper>
-                <swiper-slide  v-for="(category,m) in categories" :key="m">
-                  <div class="py-2 d-flex" v-for="(news,n) in category.newsList" :key="n">
-                    <slot name="item" :news="news"></slot>
-                  </div>
+              <swiper ref="list" 
+                @slide-change="active = $refs.list.swiper.realIndex">
+                <swiper-slide v-for="(category,m) in categories" :key="m">
+                  <slot name="item" :category="category"></slot>
                 </swiper-slide>
               </swiper>
             </div>
       </m-card>
 </template>
 <script>
-
 export default {
     props:{
         title:{
@@ -35,7 +34,7 @@ export default {
     },
     data(){
         return {
-            newsActive:0
+            active:0
         }
     }
 }

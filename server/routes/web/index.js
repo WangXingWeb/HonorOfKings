@@ -62,6 +62,16 @@ module.exports = app => {
                 categories:{ $in: subCats }
             }).limit(5).lean()
         })
+
+        cats.map(cat => {
+            cat.newsList.map(news =>{
+                news.CategoryName =cat.name == '热门' ?
+                news.categories[0].name : cat.name
+                news.CategoryName = cat.name
+                return news
+            })
+            return cat
+        })
         res.send(cats)
     })
 

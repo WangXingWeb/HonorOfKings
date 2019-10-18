@@ -64,14 +64,16 @@
       <!-- end of nav icons -->
       <m-list-card 
         icon="icon-menu" 
-        title="新闻资"  
+        title="新闻咨询"  
         :categories="newsCats"
         >
-        <template #item="{news}">
-          <span>[{{news.categoryName}}]</span>
-          <span>|</span>
-          <span class="flex-1">{{news.title}}</span>
-          <span>{{news.date}}</span>
+        <template #item="{category}">
+          <div class="py-2 fs-lg d-flex" v-for="(news,n) in category.newsList" :key="n">
+            <span class="text-info">[{{news.CategoryName}}]</span>
+            <span class="px-2"> | </span>
+            <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{news.title}}</span>
+            <span class="text-grey-1 fs-sm">{{news.createdAt | date}}</span>
+          </div>
         </template>  
       </m-list-card>
       <m-card icon="icon-flightpeople3" title="英雄列表">
@@ -87,7 +89,14 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 export default{
+  filters:{
+    date(val){
+      return dayjs(val).format('MM/DD')
+    }
+  },
   data(){
     return {
       newsCats:[],
@@ -106,8 +115,10 @@ export default{
   methods:{
     async fetchNewsCats(){
       const res = await this.$http.get('news/list')
+      console.log(res)
       this.newsCats = res.data
-    }
+    },
+    callback(){}
   },
   created(){
     this.fetchNewsCats()
