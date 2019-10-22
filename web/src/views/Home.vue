@@ -76,6 +76,22 @@
           </div>
         </template>  
       </m-list-card>
+      <!-- end of newsList -->
+      <m-list-card 
+        icon="icon-flightpeople3" 
+        title="英雄列表"  
+        :categories="heroCats"
+        >
+        <template #item="{category}">
+          <div class="d-flex flex-wrap" style="margin:0 -0.5rem;">
+            <div class="p-2 text-center" style="width:20%;" v-for="(hero,n) in category.heroList" :key="n">
+              <img class="w-100" :src="hero.avatar" alt="">
+              <div>{{hero.name}}</div>
+            </div>
+          </div>
+        </template>  
+      </m-list-card>
+      <!-- end of heroList -->
       <m-card icon="icon-flightpeople3" title="英雄列表">
 
       </m-card>
@@ -100,6 +116,7 @@ export default{
   data(){
     return {
       newsCats:[],
+      heroCats:[],
       swiperOption: {
         loop:true,
         autoplay: {
@@ -118,10 +135,16 @@ export default{
       console.log(res)
       this.newsCats = res.data
     },
+    async fetchHeroCats(){
+      const res = await this.$http.get('heroes/list')
+      console.log(res)
+      this.heroCats = res.data
+    },
     callback(){}
   },
   created(){
     this.fetchNewsCats()
+    this.fetchHeroCats()
   }
 }
 </script>
