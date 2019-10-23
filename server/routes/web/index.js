@@ -122,5 +122,6 @@ module.exports = app => {
         res.send(cats)
     })
 
+    
     app.use('/web/api', router)
 }
