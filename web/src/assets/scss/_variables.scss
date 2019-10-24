@@ -2,6 +2,7 @@
 $colors:(
     "primary":#db9e3f,
     "info":#4b67af,
+    "blue":#4394e4,
     "white":#fff,
     "black":#000, 
     "dark":#222,
@@ -24,6 +25,13 @@ $font-sizes:(
     lg:1.0769,//14px
     xl:1.2308,//16px
     xll:1.8462 //24px
+);
+//border宽度
+$border-size:(
+    1:1px,
+    2:2px,
+    3:3px,
+    5:5px
 );
 
 //弹性布局主轴方向对齐方式

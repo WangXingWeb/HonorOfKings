@@ -68,12 +68,16 @@
         :categories="newsCats"
         >
         <template #item="{category}">
-          <div class="py-2 fs-lg d-flex" v-for="(news,n) in category.newsList" :key="n">
+          <router-link 
+          tag="div"
+          :to="`/articles/${news._id}`"
+          class="py-2 fs-lg d-flex" 
+          v-for="(news,n) in category.newsList" :key="n">
             <span class="text-info">[{{news.CategoryName}}]</span>
             <span class="px-2"> | </span>
             <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{news.title}}</span>
             <span class="text-grey-1 fs-sm">{{news.createdAt | date}}</span>
-          </div>
+          </router-link>
         </template>  
       </m-list-card>
       <!-- end of newsList -->

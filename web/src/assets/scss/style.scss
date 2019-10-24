@@ -19,6 +19,9 @@ body{
 a{
     color:#999;
 }
+p{
+    line-height: 1.5em;
+}
 // color
 //文字颜色和背景色
 @each $colorKey,$color in $colors {
@@ -45,7 +48,7 @@ a{
 }
 //text-overflow
 .text-ellipsis{
-    display: inline-block;
+    //display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -122,6 +125,15 @@ a{
                 #{$type}-#{$direction}:$size * $spacing-base-size;
             }
         }
+    }
+}
+
+//borders
+@each $dir in (top,right,bottom,left) {
+    @each $sizeKey,$size in $border-size {
+        .border-#{$dir}-#{$sizeKey}{
+            border-#{$dir}:$size solid $border-color;
+        } 
     }
 }
 
