@@ -128,8 +128,11 @@ module.exports = app => {
         data.related = await Article.find().where({
             categories:{ $in:data.categories }
         }).limit(2)
-        console.log(data);
-        
+        res.send(data)
+    })
+    //英雄详情接口
+    router.get("/heroes/:id", async (req,res) => {
+        const data = await Hero.findById(req.params.id).lean()
         res.send(data)
     })
 

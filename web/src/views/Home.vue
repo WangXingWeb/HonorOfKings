@@ -88,10 +88,13 @@
         >
         <template #item="{category}">
           <div class="d-flex flex-wrap" style="margin:0 -0.5rem;">
-            <div class="p-2 text-center" style="width:20%;" v-for="(hero,n) in category.heroList" :key="n">
+            <router-link class="p-2 text-center" 
+            style="width:20%;" 
+            v-for="(hero,n) in category.heroList" :key="n"
+            tage="div" :to="`/heroes/${hero._id}`">
               <img class="w-100" :src="hero.avatar" alt="">
               <div>{{hero.name}}</div>
-            </div>
+            </router-link>
           </div>
         </template>  
       </m-list-card>
