@@ -10,9 +10,27 @@
           更多英雄  &nbsp;&gt;
         </router-link>
     </div>
-    <div>
-      {{model.avatar}}
-      <img :src="model.avatar"> 
+    <div class="top" :style="{'backgroundImage':`url(${imgurl})`}">
+      <div class="info text-white p-3 d-flex flex-column jc-end h-100">
+        <div class="fs-sm">{{model.title}}</div>
+        <h2 class="my-2">{{model.name}}</h2>
+        <div class="fs-sm">{{model.categories.map(v => v.name).join('/')}}</div>
+        <div class="d-flex jc-between">
+          <div class="scores d-flex ai-center pt-2" v-if="model.scores">
+            <span>难度</span>
+            <span class="badge bg-primary">{{model.scores.difficult}}</span>
+            <span>技能</span>
+            <span class="badge bg-blue-1">{{model.scores.skills}}</span>
+            <span>攻击</span>
+            <span class="badge bg-danger">{{model.scores.attack}}</span>
+            <span>生存</span>
+            <span class="badge bg-dark">{{model.scores.survive}}</span>
+          </div>
+          <router-link to="/" tag="span" class="text-grey fs-sm">
+            皮肤：2&gt;
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +43,8 @@ export default{
   },
   data(){
     return{
-      model:null
+      model:null,
+      imgurl:'https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/167/167-bigskin-1.jpg'
     }
   },
   methods:{
@@ -43,3 +62,30 @@ export default{
   }
 }
 </script>  
+
+<style lang="scss">
+  .page-hero{
+    .top{
+      height:50vw;
+      background:#fff no-repeat top center;
+      background-size:auto 100%; 
+    }
+    .info{
+      background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+
+      .scores{
+        .badge{
+          width: 1em;
+          height: 1em;
+          line-height: 0.9em;
+          font-size: 0.6m;
+          text-align: center;
+          border-radius: 50%;
+          margin: 0 0.25em;
+          display: inline-block;
+          border:1px solid rgba(255,255,255,0.3)
+        }
+      }
+    }
+  }  
+</style>
