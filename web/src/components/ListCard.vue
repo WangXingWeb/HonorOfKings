@@ -43,8 +43,5 @@ export default {
 @import '../assets/scss/variables';
 .card{
     border-bottom: 1px solid map-get($map: $colors, $key:'light-1');
-    .card-header{
-        border-bottom:1px solid map-get($map: $colors, $key:'light-1');
-    }
 }
 </style>

@@ -143,7 +143,24 @@ p{
     border-radius: 2px;
     -webkit-font-smoothing:antialiased;
     //font-size:map-get($font-sizes,'sm') * $base-font-size 
+
+    &.btn-lg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i{
+            color:map-get($map: $colors, $key:'primary');
+            font-size: 1.5rem;
+            margin-right:0.5rem;
+        }
+        background: map-get($map: $colors, $key:'white-1' );
+        border:1px solid map-get($map: $colors, $key:'white-2');
+        padding:0.8rem 1rem;
+        font-size: 1rem;
+    }
 }
+
 
 //nav
 .nav{
