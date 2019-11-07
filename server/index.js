@@ -4,6 +4,7 @@ const app = express()
 
 app.set('secret','xingzai')
 
+//跨域
 app.use(require('cors')())
 app.use(express.json())
 
